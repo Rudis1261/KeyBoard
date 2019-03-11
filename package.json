@@ -1,0 +1,22 @@
+{
+  "name": "just-another-keyboard-control-interface",
+  "version": "1.0.0",
+  "description": "See name",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drpain/KeyBoard.git"
+  },
+  "author": "Rudi Strydom <iam@thatguy.co.za>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drpain/KeyBoard/issues"
+  },
+  "homepage": "https://github.com/drpain/KeyBoard#readme",
+  "devDependencies": {
+    "electron": "^4.0.8"
+  }
+}
