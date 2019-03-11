@@ -1,20 +1,33 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const path = require("path");
 const url = require("url");
+const serialport = require('serialport');
 
 let win;
+let production = process.argv.filter(val => (val == '--prod' || val == '--production')).length > 0
+
+const listPorts = async () => {
+  const ports = await serialport.list()
+  console.log("PORTS", ports)
+}
+listPorts()
 
 function createWindow() {
   win = new BrowserWindow({ width: 800, height: 600 });
 
   // load the dist folder from Angular
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, `/dist/index.html`),
-      protocol: "file:",
-      slashes: true
-    })
-  );
+  if (production) {
+    win.loadURL(
+      url.format({
+        pathname: path.join(__dirname, `/dist/index.html`),
+        protocol: "file:",
+        slashes: true
+      })
+    );
+  } else {
+    require('electron-reload')(__dirname);
+    win.loadURL('http://localhost:4200/index.html');
+  }
 
   // The following is optional and will open the DevTools:
   // win.webContents.openDevTools()
