@@ -4,6 +4,10 @@
 const remote = require('electron').remote;
 var sp = require("serialport");
 
+window.selectedPort = localStorage.getItem('port') || false;
+
+console.log("SELECTED PORT", window.selectedPort)
+
 window.port_list = [];
 sp.list((err, ports) => {
     window.port_list = ports;
