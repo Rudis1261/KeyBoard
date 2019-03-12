@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/drpain/KeyBoard#readme",
   "devDependencies": {
-    "electron": "^4.0.8"
+    "electron": "^4.0.8",
+    "electron-rebuild": "^1.8.4"
+  },
+  "dependencies": {
+    "serialport": "^7.1.4"
   }
 }
