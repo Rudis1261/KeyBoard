@@ -2,16 +2,10 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const remote = require('electron').remote;
-var sp = require("serialport");
+var serialPort = require("serialport");
 
 window.selectedPort = localStorage.getItem('port') || false;
-
-console.log("SELECTED PORT", window.selectedPort)
-
-window.port_list = [];
-sp.list((err, ports) => {
-    window.port_list = ports;
-});
+window.serialPort = serialPort;
 
 (function handleWindowControls() {
     // When document has loaded, initialise
